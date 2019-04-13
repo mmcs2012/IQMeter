@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IQ Meter</string>
+    <string name="welcome_text">Насколько Вы умны?</string>
+    <string name="no_text">Введите значение Вашего IQ</string>
+    <string name="button_text">Выполнить</string>
+    <string name="hint_text">Введите IQ</string>
 </resources>

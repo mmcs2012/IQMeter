@@ -10,10 +10,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var text = inputField.text
+        //inputField.text.toString().toIntOrNull()
+
         startButton.setOnClickListener{
-            if (text.isEmpty()) resultTextView.text = "Введите текст"
-            else resultTextView.text = "Привет, $text"
+            if (inputField.text.isEmpty()) resultTextView.text = "@string/no_text" //Если поле ввода пусто - предупреждаем пользователя
+            var iqNumber = inputField.text.toString().toIntOrNull()
+            when (iqNumber) {
+                in 1..10 -> resultTextView.text = "Да уж, $iqNumber... Вам есть куда развиваться. Вы слегка умнее рыбки."
+                in 11..25 -> resultTextView.text = "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
+                in 26..80 -> resultTextView.text = "Поздравляю! Вы умнее наглого домашнего кота. Правда ему плевать на это."
+                else -> resultTextView.text = "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+                }
         }
     }
 }
