@@ -16,17 +16,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         startButton.setOnClickListener{
             if (inputField.text.isEmpty()) resultTextView.text = "@string/no_text" //Если поле ввода пусто - предупреждаем пользователя
-            var iqNumber = inputField.text.toString().toIntOrNull() //Объявим и инициализируем переменную целым значением
-            when (iqNumber) {
-                in 1..10 -> resultTextView.text = "Да уж, $iqNumber... Вам есть куда развиваться. Вы слегка умнее рыбки."
-                in 11..25 -> resultTextView.text = "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
-                in 26..80 -> resultTextView.text = "Поздравляю! Вы умнее наглого домашнего кота. Правда ему плевать на это."
-                else -> resultTextView.text = "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
-                }
+            var result = answerFunction(inputField.text.toString().toInt())
+            resultTextView.text = result //Результат выводим в соответствующем поле
         }
 
         checkBoxOne.setOnClickListener(this) //Устанавливаем слушателя не в разметке, а из кода
         checkBoxSecond.setOnClickListener(this)
+    }
+
+    fun answerFunction(iqValue: Int): String {
+        when (iqValue) {
+            in 1..10 -> return "Да уж, $iqValue... Вам есть куда развиваться. Вы слегка умнее рыбки."
+            in 11..25 -> return "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
+            in 26..80 -> return "Поздравляю! Вы умнее наглого домашнего кота. Правда ему плевать на это."
+            else -> return "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+        }
     }
 
     override fun onClick(v: View?) {
