@@ -2,7 +2,9 @@ package com.mmcs.iqmeter
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.CheckBox
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,9 +24,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 else -> resultTextView.text = "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
                 }
         }
+
+        checkBoxOne.setOnClickListener(this)
+        checkBoxSecond.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        v as CheckBox //кастинг View
+        var isChecked: Boolean = v.isChecked
+
+        when (v.id) {
+            R.id.checkBoxOne -> if (isChecked) {Log.d("First checked", "First")}
+            R.id.checkBoxSecond -> if (isChecked) {Log.d("Second checked", "Second")}
+        }
+
     }
 }
