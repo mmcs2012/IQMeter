@@ -10,11 +10,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //inputField.text.toString().toIntOrNull()
 
         startButton.setOnClickListener{
             if (inputField.text.isEmpty()) resultTextView.text = "@string/no_text" //Если поле ввода пусто - предупреждаем пользователя
-            var iqNumber = inputField.text.toString().toIntOrNull()
+            var iqNumber = inputField.text.toString().toIntOrNull() //Объявим и инициализируем переменную целым значением
             when (iqNumber) {
                 in 1..10 -> resultTextView.text = "Да уж, $iqNumber... Вам есть куда развиваться. Вы слегка умнее рыбки."
                 in 11..25 -> resultTextView.text = "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
