@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
         }
 
-        checkBoxOne.setOnClickListener(this)
+        checkBoxOne.setOnClickListener(this) //Устанавливаем слушателя не в разметке, а из кода
         checkBoxSecond.setOnClickListener(this)
     }
 
@@ -34,8 +34,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         var isChecked: Boolean = v.isChecked
 
         when (v.id) {
-            R.id.checkBoxOne -> if (isChecked) {Log.d("First checked", "First")}
-            R.id.checkBoxSecond -> if (isChecked) {Log.d("Second checked", "Second")}
+            R.id.checkBoxOne -> if (isChecked) {
+                Log.d("First checked", "First")
+                checkBoxSecond.isChecked = false //Если выбран первый checkBox, то второй должен быть не активен
+            }
+            R.id.checkBoxSecond -> if (isChecked) {
+                Log.d("Second checked", "Second")
+                checkBoxOne.isChecked = false
+            }
         }
 
     }
