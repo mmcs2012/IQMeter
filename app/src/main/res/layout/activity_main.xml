@@ -19,6 +19,7 @@
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:ems="10"
             android:id="@+id/inputField"
             android:layout_marginStart="8dp"
@@ -53,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp">
         <CheckBox
                 android:text="@string/checkbox_first"
                 android:layout_width="wrap_content"
@@ -68,6 +70,10 @@
                 android:id="@+id/checkBoxSecond"
                 android:layout_weight="1"/>
     </LinearLayout>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:id="@+id/imageView"/>
     <TextView
             android:layout_width="286dp"
             android:layout_height="200dp"
@@ -75,5 +81,6 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:textSize="18sp"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"/>
 </LinearLayout>
