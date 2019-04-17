@@ -8,7 +8,6 @@ import android.widget.CheckBox
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,17 +29,42 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     fun answerFunction(iqValue: Int, checkBox: CheckBox): String {
         if (checkBox.id == R.id.checkBoxOne) {
             when (iqValue) {
-                in 1..10 -> return "А ведь это - результат! Вы значительно умнее рыбки."
-                in 11..25 -> return "Вы настолько умны, что можете разговаривать с животными."
-                in 26..80 -> return "Вы умнее домашнего кота и он отказывается с Вами это обсуждать."
-                else -> return "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+                in 1..10 -> {
+                    //TODO: на api23 приложение не может вывести картинку, crash
+                    imageView.setImageResource(R.drawable.fish)
+                    return "А ведь это - результат! Вы значительно умнее рыбки."
+                }
+                in 11..25 -> {
+                    imageView.setImageResource(R.drawable.cat)
+                    return "Вы настолько умны, что можете разговаривать с животными."
+                }
+                in 26..80 -> {
+                    imageView.setImageResource(R.drawable.cat)
+                    return "Вы умнее домашнего кота и он отказывается с Вами это обсуждать."
+                }
+                else -> {
+                    imageView.setImageResource(R.drawable.monkey)
+                    return "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+                }
             }
         } else {
             when (iqValue) {
-                in 1..10 -> return "Да уж, $iqValue... Вам есть куда развиваться. Вы слегка умнее рыбки."
-                in 11..25 -> return "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
-                in 26..80 -> return "Поздравляю! Вы умнее наглого домашнего кота. Правда ему плевать на это."
-                else -> return "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+                in 1..10 -> {
+                    imageView.setImageResource(R.drawable.fish)
+                    return "Да уж, $iqValue... Вам есть куда развиваться. Вы слегка умнее рыбки."
+                }
+                in 11..25 -> {
+                    imageView.setImageResource(R.drawable.cat)
+                    return "Где-то на уровне домашнего кота. Теперь Вы можете разговаривать с ним на равных."
+                }
+                in 26..80 -> {
+                    imageView.setImageResource(R.drawable.cat)
+                    return "Поздравляю! Вы умнее наглого домашнего кота. Правда ему плевать на это."
+                }
+                else -> {
+                    imageView.setImageResource(R.drawable.monkey)
+                    return "Вы настолько умны, сэр, что я боюсь сделать опрометчивый вывод."
+                }
             }
         }
     }
